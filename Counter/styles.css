@@ -1,0 +1,16 @@
+div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+span {
+    margin: 10px;
+    font-size: 20px;
+}
+
+button {
+    margin-right: 20px;
+    width: 70px;
+    height: 35px;
+}
