@@ -1,0 +1,58 @@
+.contactImage {
+    margin: 20px;
+    width:50px;
+    height:50px;
+}
+
+.contactForm {
+    margin: 0 auto;
+    border: dashed 1px deepskyblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 1000px;
+}
+
+.contactForm input {
+    margin: auto;
+    padding: 3px;
+}
+
+button {
+    align-self: stretch;
+    justify-self: center;
+    display: block;
+}
+
+.contactsList {
+    padding: 0;
+    margin: 30px auto;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactItem {
+    margin: 15px auto;
+    width: 700px;
+    border: dashed 1px firebrick;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contactItem p {
+    margin-right: 10px;
+}
+
+.contactEmail, .contactLabel {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
