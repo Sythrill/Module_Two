@@ -1,0 +1,22 @@
+img {
+    float: left;
+    margin-bottom: 50px;
+    margin-right: 20px;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+div {
+    clear: both;
+}
+
+li {
+    margin: 50px;
+    list-style: none;
+}
+
+p {
+    width: 500px;
+}
