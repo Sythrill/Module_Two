@@ -8,6 +8,53 @@ App = React.createClass({
         };
     },
 
+    getGif: function (searchingText) {
+        return new Promise(
+            function (resolve, reject) {
+                const GIPHY_API_URL = 'https://api.giphy.com';
+                const GIPHY_PUB_KEY = 'dc6zaTOxFJmzC';
+                const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
+                const xhr = new XMLHttpRequest();
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        const data = JSON.parse(xhr.responseText).data;
+                        const gif = {
+                            url: data.fixed_width_downsampled_url,
+                            sourceUrl: data.url
+                        };
+                        resolve(gif);
+                    } else {
+                        reject(Error(xhr.statusText));
+                    }
+                };
+                xhr.onerror = function () {
+                    reject(Error(`XMLHttpRequest Error: ${this.statusText}`));
+                };
+                xhr.open('GET', url);
+                xhr.send();
+            }
+        );
+    },
+
+    handleSearch: function (searchingText) {
+        this.setState({
+            loading: true
+        });
+
+        this.getGif(searchingText)
+            .then(function (gif) {
+                this.setState({
+                    loading: false,
+                    gif: gif,
+                    searchingText: searchingText
+                });
+            }.bind(this))
+            .catch(function (error) {
+                console.log(error);
+            }.bind(this));
+    },
+
+
     render: function () {
 
         var styles = {
@@ -28,23 +75,10 @@ App = React.createClass({
                 />
             </div>
         );
-    },
+    }
+});
 
-    handleSearch: function (searchingText) {
-        this.setState({
-            loading: true
-        });
-
-        this.getGif(searchingText, function (gif) {
-
-            this.setState({
-                loading: false,
-                gif: gif,
-                searchingText: searchingText
-            });
-
-        }.bind(this));
-    },
+/*
 
     getGif: function (searchingText, callback) {
 
@@ -67,3 +101,4 @@ App = React.createClass({
         xhr.send();
     },
 });
+*/
