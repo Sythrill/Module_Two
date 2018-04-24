@@ -1,8 +1,8 @@
 //1
-const HelloWorld = (h = "Hello", w = "World") => console.log(`${h} ${w}`);
+const helloWorld = (h = "Hello", w = "World") => console.log(`${h} ${w}`);
 
 //2
-const Multiplayer = (a = 1, b = 1) => {
+const multiplayer = (a = 1, b = 1) => {
     return a * b
 };
 
